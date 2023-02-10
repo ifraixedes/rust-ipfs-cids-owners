@@ -1,0 +1,16 @@
+version: "3.4"
+services:
+  ethereum:
+    image: trufflesuite/ganache:v7.7.4
+    expose:
+      - "8545"
+    ports:
+      - "8545:8545"
+  ipfs:
+    image: ipfs/kubo:v0.18.1
+    expose:
+      - "4001"  # Swarm
+      - "5001"  # API and Web UI
+      - "8080"  # Gateway
+    ports:
+      - "5001:5001"

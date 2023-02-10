@@ -1,0 +1,12 @@
+{
+  "name": "ipfs-upload-smart-contract-cid-test",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "truffle": "truffle",
+    "clean": "rm -rf build"
+  },
+  "devDependencies": {
+    "truffle": "^5.7.5"
+  }
+}
