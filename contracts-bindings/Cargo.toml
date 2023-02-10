@@ -1,0 +1,15 @@
+[package]
+name = "ipfs-cids-owners-contracts"
+version = "0.0.1"
+authors = ["Ivan Fraixedes <ivan@fraixed.es>"]
+edition = "2021"
+description = "Ethereum smart contract to register owners of IPFS CIDs"
+license = "MIT"
+repository = "https://github.com/ifraixedes/rust-ipfs-cids-owners"
+keywords = ["ethereum", "ipfs", "smart-contract", "example"]
+
+[dependencies]
+ethers = "1.0.2"
+
+[build-dependencies]
+ethers = "1.0.2"

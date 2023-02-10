@@ -1,0 +1,9 @@
+[package]
+name = "ipfs-cids-owners-cli"
+version = "0.0.1"
+authors = ["Ivan Fraixedes <ivan@fraixed.es>"]
+edition = "2021"
+description = "Command-line tool for uploading a file to IPFS and stores the CID in a smart contract, built as an example"
+license = "MIT"
+repository = "https://github.com/ifraixedes/rust-ipfs-cids-owners"
+keywords = ["ethereum", "ipfs", "example"]

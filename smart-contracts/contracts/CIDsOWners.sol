@@ -3,10 +3,10 @@
 pragma solidity >=0.8.18 <0.9.0;
 
 /**
- * @title IPFSUploadedFiles
- * @dev Register CIDs of files uploaded to IPFS.
+ * @title CIDsOnwers
+ * @dev Register owner of IPFS CIDs
  */
-contract IPFSUploadedFiles {
+contract CIDsOwners {
     mapping(address owner => string[] cids) uploadedFiles;
 
     /**
@@ -22,7 +22,7 @@ contract IPFSUploadedFiles {
       * @param owner of the returned list of CIDs.
       * @return cids List of CIDs.
       */
-    function getUploadedCIDs(address owner) public view returns (string[] memory cids) {
+    function getOwnedCIDs(address owner) public view returns (string[] memory cids) {
         return uploadedFiles[owner];
     }
 }
