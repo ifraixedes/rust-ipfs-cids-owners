@@ -7,3 +7,10 @@ description = "Command-line tool for uploading a file to IPFS and stores the CID
 license = "MIT"
 repository = "https://github.com/ifraixedes/rust-ipfs-cids-owners"
 keywords = ["ethereum", "ipfs", "example"]
+
+[dependencies]
+ethers = "1.0.2"
+http = "0.2.8"
+ipfs-api-backend-hyper = "0.6.0"
+ipfs-cids-owners-contracts = { version = "0.0.1", path = "../contracts-bindings" }
+tokio = { version = "1.25.0", features = [ "rt-multi-thread", "macros" ]  }
