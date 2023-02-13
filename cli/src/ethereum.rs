@@ -1,9 +1,6 @@
 use crate::error::{BoxError, Error, ExternalSystem};
 
-use std::io::{Error as ioError, ErrorKind as ioErrorKind};
 use std::sync::Arc;
-
-use ipfs_cids_owners_contracts::cids_owners;
 
 use ethers::{
     core::types::{Address, TransactionReceipt},
@@ -11,6 +8,7 @@ use ethers::{
     providers::{Http, Provider},
     signers::{LocalWallet, Signer},
 };
+use ipfs_cids_owners_contracts::cids_owners;
 
 pub struct CIDsOwners {
     contract_address: Address,
@@ -66,6 +64,9 @@ impl CIDsOwners {
     }
 
     // Get the registered CIDs from `owner`.
+    // Currently isn't exposed publicly because only tests uses it and it isn't part of the
+    // requirements.
+    #[allow(dead_code)]
     pub(crate) async fn my_registered_cids(
         &self,
         owner: LocalWallet,
@@ -97,16 +98,18 @@ mod test {
     #[test_with::env(IPFS_CIDS_OWNERS_CONTRACT_ADDRESS, IPFS_CIDS_OWNER_PRIV_KEY)]
     #[tokio::test]
     async fn test_cids_owners_register() {
-        let contract_addr = env::var("IPFS_CIDS_OWNERS_CONTRACT_ADDRESS").expect("BUG this test should be ignored without the 'IPFS_CIDS_OWNERS_CONTRACT_ADDRESS' env var ");
+        let contract_addr = env::var("IPFS_CIDS_OWNERS_CONTRACT_ADDRESS").expect(
+            "BUG this test should be ignored without the 'IPFS_CIDS_OWNERS_CONTRACT_ADDRESS' env var",
+        );
         let contract_addr = contract_addr
             .parse::<Address>()
             .expect("a valid contract address");
 
         let owner_priv_key = env::var("IPFS_CIDS_OWNER_PRIV_KEY").expect(
-            "BUG this test should be ignored without the 'IPFS_CIDS_OWNER_PRIV_KEY' env var ",
+            "BUG this test should be ignored without the 'IPFS_CIDS_OWNER_PRIV_KEY' env var",
         );
-        let owner_wallet: LocalWallet = owner_priv_key
-            .parse()
+        let owner_wallet = owner_priv_key
+            .parse::<LocalWallet>()
             .expect("a valid private key. NOTE set it without the '0x' prefix)");
 
         let cids_owners =
