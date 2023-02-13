@@ -1,4 +1,5 @@
 mod cli;
+mod cmd;
 mod error;
 mod ethereum;
 mod ipfs;
