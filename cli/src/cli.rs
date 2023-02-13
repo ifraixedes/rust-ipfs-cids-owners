@@ -1,3 +1,5 @@
+//! Command-line interface flags and parameters.
+
 use std::path::PathBuf;
 
 use clap::Parser;

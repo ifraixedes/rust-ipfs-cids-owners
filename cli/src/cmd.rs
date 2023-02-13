@@ -1,3 +1,5 @@
+//! Commands offered by the application.
+
 use crate::{
     cli,
     error::{BoxError, Error},
@@ -7,7 +9,7 @@ use crate::{
 use ethers::{abi::AbiEncode, core::types::Address, signers::LocalWallet};
 use ipfs_api_backend_hyper::{IpfsClient, TryFromUri};
 
-/// Upload a file specified by the command-line to IPFS and register it's CID to the CIDsOwners
+/// Uploads a file specified by the command-line to IPFS and register it's CID to the CIDsOwners
 /// smart contract.
 pub async fn upload_and_register(args: cli::App) -> Result<UploadRegisterSummary, Error> {
     let ipfs_cli = IpfsClient::from_host_and_port(
@@ -63,6 +65,7 @@ pub async fn upload_and_register(args: cli::App) -> Result<UploadRegisterSummary
     })
 }
 
+/// Contains information of successful file upload and CID registration.
 pub struct UploadRegisterSummary {
     pub cid: String,
     pub ether_tx_hash: String,

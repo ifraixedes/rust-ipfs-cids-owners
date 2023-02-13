@@ -1,3 +1,6 @@
+//! Command-line application for uploading files to IPFS and register the corresponding CID to
+//! CIDsOwners Ethereum smart contract.
+
 mod cli;
 mod cmd;
 mod error;

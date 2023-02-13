@@ -10,6 +10,7 @@ use ethers::{
 };
 use ipfs_cids_owners_contracts::cids_owners;
 
+/// CIDsOnwers expose a high level API for registering CIDs to the CIDsOwners smart contract.
 pub struct CIDsOwners {
     contract_address: Address,
     provider: Provider<Http>,

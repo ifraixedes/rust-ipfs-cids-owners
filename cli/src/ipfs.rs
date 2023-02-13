@@ -1,3 +1,5 @@
+//! IPFS high level API to fulfill the requirements of the command-line application.
+
 use crate::error::{BoxError, Error, ExternalSystem};
 use std::io::ErrorKind as ioErrorKind;
 
