@@ -10,6 +10,7 @@ keywords = ["ethereum", "ipfs", "example"]
 
 [dependencies]
 async-fs = "1.6.0"
+clap = { version = "4.1.4", features = [ "derive" ] }
 ethers = "1.0.2"
 http = "0.2.8"
 ipfs-api-backend-hyper = "0.6.0"

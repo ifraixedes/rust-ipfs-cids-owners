@@ -1,5 +1,10 @@
+mod cli;
 mod error;
 mod ethereum;
 mod ipfs;
 
-fn main() {}
+use clap::Parser;
+
+fn main() {
+    let cli = cli::App::parse();
+}
