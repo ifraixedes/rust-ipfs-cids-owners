@@ -186,7 +186,11 @@ impl stderr::Error for External {
 
 impl fmt::Display for External {
     fn fmt(&self, f: &mut fmt::Formatter) -> Result<(), fmt::Error> {
-        write!(f, "Extenral error produced by the {} system", self.system,)
+        write!(
+            f,
+            "External error produced by the {} system. {}",
+            self.system, self.inner
+        )
     }
 }
 
