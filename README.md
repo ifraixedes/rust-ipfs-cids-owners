@@ -24,3 +24,25 @@ Files in the root of the repository out of the usual ones:
 
   Execute `make` or `make help` to see the list of public recipes with a brief description of each
   one of them
+
+  NOTE some Make recipes won't work on Windows, or it's even possible that the Makefile doesn't work
+  on Windows at all. I expect to mostly work in OSX, however, I'm executed it in Linux.
+
+## Requirements
+
+These are the tools that you have install and be available in `PATH`:
+
+- NodeJS and its corresponding NPM. I used `v18.7.x`, but a later version should work.
+
+  It's used for compiling the smart contract and get the ABI and to compile and deploy it to the
+  local Ethereum node used for testing (see Docker below).
+- Docker with Compose command; it's accepted that Compose is available through `docker compose` or
+  `docker-compose`.
+
+  Docker Compose run an IPFS and Ethereum node local services that are used for testing.
+- Rust toolchain. I used `v1.67.x`, but I expect that it would work with later versions.
+
+  Rust is needed for the two crates that this repository contains under the Cargo workspace.
+
+  The _cli_ crate requires some specific setup for running all the tests, otherwise, some of them
+  are skipped. See its [README](cli/README.md).
