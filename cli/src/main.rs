@@ -6,6 +6,11 @@ mod ipfs;
 
 use clap::Parser;
 
-fn main() {
-    let cli = cli::App::parse();
+#[tokio::main]
+async fn main() {
+    let args = cli::App::parse();
+    match cmd::upload_and_register(args).await {
+        Ok(summary) => println!("{}", summary),
+        Err(err) => println!("{}", err),
+    };
 }
